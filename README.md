@@ -38,4 +38,19 @@ Alguns Endpoints Base deste projeto podem ser extendidos da forma mais adequada 
 
 ---
 
-\*Aula de NodeJS do Renan Johannsen na DIO.
+## Para clonar esse repositório:
+
+```
+git clone https://github.com/karinafukuda/api-ms-user-auth.git
+
+```
+
+### Para inicializar
+
+```
+npm run dev
+```
+
+---
+
+Aula de NodeJS do Renan Johannsen na DIO.
