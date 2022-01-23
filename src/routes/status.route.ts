@@ -3,10 +3,15 @@ import { StatusCodes } from 'http-status-codes';
 
 const statusRoute = Router();
 
+//GET/ status
 statusRoute.get(
   '/status',
   (req: Request, res: Response, next: NextFunction) => {
-    res.sendStatus(StatusCodes.OK);
+    try {
+      res.sendStatus(StatusCodes.OK);
+    } catch (error) {
+      next(error);
+    }
   }
 );
 

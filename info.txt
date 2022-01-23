@@ -7,3 +7,5 @@ SOBRE JWT
  nbf  -> Define uma data para qual o token não pode ser aceito antes dela
  iat  -> Data de criação do token
  jti  -> o Id do token
+
+ EM Express a ordem das chamadas importa

@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response, Router } from 'express';
 import { StatusCodes } from 'http-status-codes';
 import JWT, { SignOptions } from 'jsonwebtoken';
-import basicAuthenticatiopnMiddleware from '../middlewares/basic-authentication.middleware';
+import basicAuthenticationMiddleware from '../middlewares/basic-authentication.middleware';
 import jwtAuthenticationMiddleware from '../middlewares/jwt-authentication.middleware';
 import ForbiddenError from '../models/errors/forbidden.error.model';
 
@@ -9,7 +9,7 @@ const authorizationRoute = Router();
 
 authorizationRoute.post(
   '/token',
-  basicAuthenticatiopnMiddleware,
+  basicAuthenticationMiddleware,
   async (req: Request, res: Response, next: NextFunction) => {
     try {
       const user = req.user;

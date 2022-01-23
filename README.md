@@ -1,22 +1,21 @@
-## Microsserviço de autenticação com NodeJS
-
-<br/>
+## Microsserviço de autenticação com Node.js
 
 Desenvolvido um CRUD básico que:
 
 - Gera usuário através de uuid com `crypto` ;
 - Consulta lista usuários sem exibir senha ;
-- Consulta por uuid único usuário ;
+- Consulta por uuid um único usuário ;
 - Altera o dados do usuário ;
 - Deleta usuário por uuid;
 - Autentica usuário gerando token via `Basic Auth` ;
-- Valida um usuário por token via `Bearer Token` ;
+- Valida um usuário por token via `Bearer Token` com tempo de expiração de 15 minutos;
+
+---
 
 ## Tecnologias
 
-- Typescript
-- NodeJS
-- VSCode
+- TypeScript
+- Node.js
 - Npm
 - Git
 
@@ -25,8 +24,10 @@ Desenvolvido um CRUD básico que:
 - express
 - http-status-codes
 - pg (PostgreSQL)
-- JWT
+- JWT (JsonWebToken)
 - ts-node-dev
+
+---
 
 Alguns Endpoints Base deste projeto podem ser extendidos da forma mais adequada para seu contexto.
 
@@ -52,10 +53,18 @@ git clone https://github.com/karinafukuda/api-ms-user-auth.git
 
 ```
 
-### Configurações iniciais
+<br/>
+
+## Configurações iniciais
 
 ```
-Em: db.ts coloque uma string do banco de dados válida do postgreSQL
+No arquivo <db.ts> coloque uma string válida de acesso ao banco de dados em PostgreSQL
+```
+
+### Para instalar as dependências
+
+```
+npm install
 ```
 
 ### Para inicializar

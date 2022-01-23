@@ -8,8 +8,12 @@ const usersRoute = Router();
 usersRoute.get(
   '/users',
   async (req: Request, res: Response, next: NextFunction) => {
-    const users = await userRepository.findAllUsers();
-    res.status(StatusCodes.OK).send(users);
+    try {
+      const users = await userRepository.findAllUsers();
+      res.status(StatusCodes.OK).send(users);
+    } catch (error) {
+      next(error);
+    }
   }
 );
 
@@ -31,9 +35,13 @@ usersRoute.get(
 usersRoute.post(
   '/users',
   async (req: Request<{ uuid: string }>, res: Response, next: NextFunction) => {
-    const newUser = req.body;
-    const uuid = await userRepository.createUser(newUser);
-    res.status(StatusCodes.CREATED).send(uuid);
+    try {
+      const newUser = req.body;
+      const uuid = await userRepository.createUser(newUser);
+      res.status(StatusCodes.CREATED).send(uuid);
+    } catch (error) {
+      next(error);
+    }
   }
 );
 
@@ -41,11 +49,15 @@ usersRoute.post(
 usersRoute.put(
   '/users/:uuid',
   async (req: Request<{ uuid: string }>, res: Response, next: NextFunction) => {
-    const uuid = req.params.uuid;
-    const modifiedUser = req.body;
-    modifiedUser.uuid = uuid;
-    await userRepository.update(modifiedUser);
-    res.status(StatusCodes.OK).send();
+    try {
+      const uuid = req.params.uuid;
+      const modifiedUser = req.body;
+      modifiedUser.uuid = uuid;
+      await userRepository.update(modifiedUser);
+      res.status(StatusCodes.OK).send();
+    } catch (error) {
+      next(error);
+    }
   }
 );
 
@@ -53,9 +65,13 @@ usersRoute.put(
 usersRoute.delete(
   '/users/:uuid',
   async (req: Request<{ uuid: string }>, res: Response, next: NextFunction) => {
-    const uuid = req.params.uuid;
-    await userRepository.remove(uuid);
-    res.status(StatusCodes.OK);
+    try {
+      const uuid = req.params.uuid;
+      await userRepository.remove(uuid);
+      res.status(StatusCodes.OK);
+    } catch (error) {
+      next(error);
+    }
   }
 );
 
