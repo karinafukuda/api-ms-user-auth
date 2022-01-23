@@ -1,4 +1,5 @@
 import express from 'express'; //gerenciador de rotas
+import jwtAuthenticationMiddleware from './middlewares/jwt-authentication.middleware';
 import errorHandler from './middlewares/error-handler.middleware';
 import authorizationRoute from './routes/authorization.route';
 import statusRoute from './routes/status.route';
@@ -12,8 +13,9 @@ app.use(express.urlencoded({ extended: true }));
 
 //Config. Rotas
 app.use(statusRoute);
-app.use(usersRoute);
 app.use(authorizationRoute);
+app.use(jwtAuthenticationMiddleware);
+app.use(usersRoute);
 
 //Config. dos Handlers de Erros
 app.use(errorHandler);

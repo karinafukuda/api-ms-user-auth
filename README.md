@@ -2,7 +2,15 @@
 
 <br/>
 
-Desenvolvido um CRUD básico que gera usuário através de uuid com `crypto` , consulta lista sem exibir senha, consulta por uuid, altera o cadastro podendo gerar nova criptografia para a senha e deleta usuário. Também será capaz de autenticar e validar um usuário.
+Desenvolvido um CRUD básico que:
+
+- Gera usuário através de uuid com `crypto` ;
+- Consulta lista usuários sem exibir senha ;
+- Consulta por uuid único usuário ;
+- Altera o dados do usuário ;
+- Deleta usuário por uuid;
+- Autentica usuário gerando token via `Basic Auth` ;
+- Valida um usuário por token via `Bearer Token` ;
 
 ## Tecnologias
 
@@ -17,11 +25,10 @@ Desenvolvido um CRUD básico que gera usuário através de uuid com `crypto` , c
 - express
 - http-status-codes
 - pg (PostgreSQL)
+- JWT
 - ts-node-dev
 
 Alguns Endpoints Base deste projeto podem ser extendidos da forma mais adequada para seu contexto.
-
-[ Em progresso... ]
 
 | Usuários ~ | Endpoint        |
 | :--------- | :-------------- |
@@ -43,6 +50,12 @@ Alguns Endpoints Base deste projeto podem ser extendidos da forma mais adequada 
 ```
 git clone https://github.com/karinafukuda/api-ms-user-auth.git
 
+```
+
+### Configurações iniciais
+
+```
+Em: db.ts coloque uma string do banco de dados válida do postgreSQL
 ```
 
 ### Para inicializar
