@@ -9,4 +9,4 @@ CREATE TABLE IF NOT EXISTS  application_user(
   PRIMARY KEY (uuid)
 )
 
-INSERT INTO application_user (username, password) VALUES ('karina', crypt('admin', 'my_salt'));
+INSERT INTO application_user (username, password) VALUES ('karina', crypt('admin', '55Np'));

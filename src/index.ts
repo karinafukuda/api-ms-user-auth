@@ -11,14 +11,14 @@ app.use(express.json()); //middleware responsável por interpretar o content-typ
 app.use(express.urlencoded({ extended: true }));
 
 //Config. Rotas
-app.use(usersRoute);
 app.use(statusRoute);
+app.use(usersRoute);
 app.use(authorizationRoute);
 
 //Config. dos Handlers de Erros
 app.use(errorHandler);
 
 //Inicialização do Servidor
-app.listen(3002, () => {
-  console.log('aplicação escutando na porta 3002.');
+app.listen(3000, () => {
+  console.log('aplicação escutando na porta 3000.');
 });

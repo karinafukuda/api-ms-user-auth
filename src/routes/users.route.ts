@@ -1,14 +1,15 @@
 import { Router, Request, Response, NextFunction } from 'express';
 import { StatusCodes } from 'http-status-codes';
-import DatabaseError from '../models/errors/database.error.model';
 import userRepository from '../repositories/user.repository';
-
+//OK
 const usersRoute = Router();
 
 //GET/users
 usersRoute.get(
   '/users',
   async (req: Request, res: Response, next: NextFunction) => {
+    console.log(req.headers['authorization']);
+
     const users = await userRepository.findAllUsers();
     res.status(StatusCodes.OK).send(users);
   }
@@ -30,7 +31,7 @@ usersRoute.get(
 
 //POST/users
 usersRoute.post(
-  './users',
+  '/users',
   async (req: Request<{ uuid: string }>, res: Response, next: NextFunction) => {
     const newUser = req.body;
     const uuid = await userRepository.createUser(newUser);
@@ -40,7 +41,7 @@ usersRoute.post(
 
 //PUT/users/:uuid
 usersRoute.put(
-  './users/uuid',
+  '/users/:uuid',
   async (req: Request<{ uuid: string }>, res: Response, next: NextFunction) => {
     const uuid = req.params.uuid;
     const modifiedUser = req.body;
@@ -52,7 +53,7 @@ usersRoute.put(
 
 //DELETE/ users/:uuid
 usersRoute.delete(
-  './users/uuid',
+  '/users/:uuid',
   async (req: Request<{ uuid: string }>, res: Response, next: NextFunction) => {
     const uuid = req.params.uuid;
     await userRepository.remove(uuid);

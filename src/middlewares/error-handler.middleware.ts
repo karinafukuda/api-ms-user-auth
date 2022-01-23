@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from 'express';
-import { StatusCodes } from 'http-status-codes/build/cjs/status-codes';
+import { StatusCodes } from 'http-status-codes';
 import DatabaseError from '../models/errors/database.error.model';
 import ForbiddenError from '../models/errors/forbidden.error.model';
 

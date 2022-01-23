@@ -1,0 +1,9 @@
+SOBRE JWT
+
+ iss  -> O domínio da aplicação geradora do token
+ sub  -> É assunto do tiken, mas é mto utilizado para guardar o Id do usuário
+ aud  -> Define quem pode usar o token
+ exp  -> Data de expiração do token
+ nbf  -> Define uma data para qual o token não pode ser aceito antes dela
+ iat  -> Data de criação do token
+ jti  -> o Id do token

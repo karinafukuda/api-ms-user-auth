@@ -8,8 +8,6 @@ class UserRepository {
      SELECT uuid, username
      FROM application_user 
    `;
-    //const result = await db.query<User>(query);
-    //const rows = result.rows;
     const { rows } = await db.query<User>(query);
 
     return rows || [];
@@ -58,7 +56,7 @@ class UserRepository {
 
   async createUser(user: User): Promise<string> {
     const script = `
-      INSERT INTO  application_user (
+      INSERT INTO application_user (
         username,
         password
       )
@@ -73,8 +71,8 @@ class UserRepository {
 
   async update(user: User): Promise<void> {
     const script = `
-     UPDATE  application_user 
-      SET
+     UPDATE application_user 
+     SET
        username = $1,
        password = crypt($2, '55Np')
      WHERE uuid =$3
@@ -87,7 +85,7 @@ class UserRepository {
     const script = `
     DELETE 
     FROM application_user
-    WHERE uuid $1
+    WHERE uuid = $1
    `;
 
     const values = [uuid];
